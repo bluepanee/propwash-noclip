@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.bluepanee.pwnoclip.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "MixinDronePiloting",
+    "MixinFpvEyeGuard",
+    "MixinFunctionKeys",
+    "MixinModesTab",
+    "MixinOsdElement",
+    "MixinOsdRenderer",
+    "MixinPilotSession",
+    "MixinSwitchFunction"
+  ],
+  "client": [
+    "MixinCamera"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
+

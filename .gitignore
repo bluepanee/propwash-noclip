@@ -1,0 +1,35 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea/*
+!.idea/scopes
+
+# gradle
+/build/
+/*/build/
+/build-logic/build/
+.gradle
+
+# other
+eclipse
+run
+runs
+
+runs/
+**/runs/
+*.log
+.ref/
+.classpath/
+logs/
+**/logs/
+.cache/
