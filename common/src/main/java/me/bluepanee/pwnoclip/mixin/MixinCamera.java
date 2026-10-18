@@ -10,7 +10,7 @@ import static me.bluepanee.pwnoclip.CommonClass.isNoclipActive;
 @Mixin(Camera.class)
 public class MixinCamera {
     @ModifyExpressionValue(method = "extractRenderState", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;isSpectator()Z"))
-    private boolean hookFreeCamDisableSmartCullInBlocks(boolean original) {
+    private boolean pwnoclip$bypassSmartCullCheck(boolean original) {
         return original || isNoclipActive();
     }
 }

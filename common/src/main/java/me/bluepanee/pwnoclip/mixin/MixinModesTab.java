@@ -1,7 +1,6 @@
 package me.bluepanee.pwnoclip.mixin;
 
 import de.lardtom.propwash.input.SwitchFunction;
-import de.lardtom.propwash.input.client.FunctionKeys;
 import de.lardtom.propwash.input.client.KeyDefaults;
 import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;

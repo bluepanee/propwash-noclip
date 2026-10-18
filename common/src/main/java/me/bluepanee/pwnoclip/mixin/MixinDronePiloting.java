@@ -10,12 +10,12 @@ import static me.bluepanee.pwnoclip.CommonClass.isNoclipActive;
 @Mixin(DronePiloting.class)
 public class MixinDronePiloting {
     @ModifyExpressionValue(method = "onState", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;noBlockCollision(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/phys/AABB;)Z"))
-    private static boolean bypassBlockCollision(boolean original) {
+    private static boolean pwnoclip$bypassBlockCollisionCheck(boolean original) {
         return original || isNoclipActive();
     }
 
     @ModifyExpressionValue(method = "onState", at = @At(value = "INVOKE", target = "Lde/lardtom/propwash/drone/PathCheck;clear(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/phys/AABB;Lnet/minecraft/world/phys/Vec3;)Z"))
-    private static boolean bypassPathCheck(boolean original) {
+    private static boolean pwnoclip$bypassPathCheck(boolean original) {
         return original || isNoclipActive();
     }
 }

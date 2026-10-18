@@ -17,13 +17,10 @@ public abstract class MixinOsdRenderer {
     protected abstract void text(OsdElement element, OsdConfig.Slot slot, String text, int textColor);
 
     @Shadow
-    protected abstract String tr(String key);
-
-    @Shadow
     protected abstract int caution();
 
-    @Inject(at = @At("HEAD"), method = "drawElement")
-    private void draw(OsdElement element, OsdConfig.Slot slot, CallbackInfo ci) {
+    @Inject(method = "drawElement", at = @At("HEAD"))
+    private void pwnoclip$hookDrawElement(OsdElement element, OsdConfig.Slot slot, CallbackInfo ci) {
         if (element.name().equals("PWNOCLIP_NOCLIP") && isNoclipActive()) {
             text(element, slot, "NOCLIP ACTIVE", caution());
         }

@@ -10,8 +10,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(FunctionKeys.class)
 public class MixinFunctionKeys {
-    @Inject(at = @At("HEAD"), method = "entry", cancellable = true)
-    private static void en(SwitchFunction function, CallbackInfoReturnable<KeyDefaults.Entry> cir) {
+    @Inject(method = "entry", at = @At("HEAD"), cancellable = true)
+    private static void pwnoclip$hookEntry(SwitchFunction function, CallbackInfoReturnable<KeyDefaults.Entry> cir) {
         if (function.name().equals("PWNOCLIP_NOCLIP")) cir.setReturnValue(new KeyDefaults.Entry("noclip", 0, false, false));
     }
 }

@@ -20,13 +20,13 @@ public enum MixinSwitchFunction {
     @Final
     public static int COMMAND_COUNT;
 
-    @Inject(at = @At("HEAD"), method = "supportsToggle", cancellable = true)
-    private void sT(CallbackInfoReturnable<Boolean> cir) {
+    @Inject(method = "supportsToggle", at = @At("HEAD"), cancellable = true)
+    private void pwnoclip$hookSupportsToggle(CallbackInfoReturnable<Boolean> cir) {
         if (this.name().equals("PWNOCLIP_NOCLIP")) cir.setReturnValue(true);
     }
 
-    @Inject(at = @At("HEAD"), method = "command()Z", cancellable = true)
-    private void c(CallbackInfoReturnable<Boolean> cir) {
+    @Inject(method = "command()Z", at = @At("HEAD"), cancellable = true)
+    private void pwnoclip$fixCommand(CallbackInfoReturnable<Boolean> cir) {
         if (this.ordinal() >= COMMAND_1.ordinal() + COMMAND_COUNT) cir.setReturnValue(false);
     }
 }

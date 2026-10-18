@@ -10,8 +10,8 @@ import static me.bluepanee.pwnoclip.CommonClass.isNoclipActive;
 
 @Mixin(FpvEyeGuard.class)
 public class MixinFpvEyeGuard {
-    @ModifyExpressionValue(method = "apply(Lnet/minecraft/world/level/BlockGetter;Lorg/joml/Vector3d;Lorg/joml/Vector3dc;Lorg/joml/Vector3fc;Lorg/joml/Vector3fc;Lorg/joml/Vector3fc;FFD)Z", at = @At(value = "FIELD", target = "Lde/lardtom/propwash/drone/client/FpvEyeGuard;bypassed:Z", opcode = Opcodes.GETFIELD))
-    private boolean bypassFpvEyeGuard(boolean original) {
+    @ModifyExpressionValue(at = @At(value = "FIELD", target = "Lde/lardtom/propwash/drone/client/FpvEyeGuard;bypassed:Z", opcode = Opcodes.GETFIELD), method = "apply(Lnet/minecraft/world/level/BlockGetter;Lorg/joml/Vector3d;Lorg/joml/Vector3dc;Lorg/joml/Vector3fc;Lorg/joml/Vector3fc;Lorg/joml/Vector3fc;FFD)Z")
+    private boolean pwnoclip$bypassFpvEyeGuard(boolean original) {
         return original || isNoclipActive();
     }
 }
